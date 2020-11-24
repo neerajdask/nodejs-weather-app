@@ -4,15 +4,12 @@ const input = document.querySelector('input');
 const messageOne = document.querySelector('#message-one');
 const messageTwo = document.querySelector('#message-two');
 
-// messageOne.textContent = 'AA';
-// messageTwo.textContent = 'BB';
-
 form.addEventListener('submit', (event) => {
-    const location = input.value;
     event.preventDefault();
+    const location = input.value;
 
     messageOne.textContent = 'Loading....';
-    fetch('http://localhost:3000/weather?address=' + location).then(
+    fetch('/weather?address=' + location).then(
         (res) => {
             res.json().then((data) => {
                 if (data.error) {
