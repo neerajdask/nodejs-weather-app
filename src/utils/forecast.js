@@ -18,13 +18,17 @@ const forecast = (lat, long, callback) => {
                 undefined
             );
         } else {
+            console.log(response.body);
             const res =
                 response.body.current.weather_descriptions[0] +
                 '. Its currently ' +
                 response.body.current.temperature +
                 ' degrees out. But it feels like ' +
                 response.body.current.feelslike +
-                ' degrees.';
+                ' degrees.' +
+                ' The humidity today is ' +
+                response.body.current.humidity +
+                '%';
 
             callback(undefined, res);
         }
